@@ -1,2 +1,5 @@
 # CP216-Subroutines-ARM
-This program uses the assembly language ARM. It accepts integer values as input, sorts them, and then outputs them in the display panel (the UART) in the correct order.
+This program uses the assembly language ARM. It uses subroutines, branch and link, and stacks to push and pop values which allows for us to move from one subroutine to the other and save the values we were using before executing the subroutine.
+The program requires positive integer values to be entered. These values can be at most 3 digits. Users input space separated values in the UART. The program reads the values but stops when either the length of the array becomes equal to MaxSize or when the UART queue has been emptied.
+As values are being read from the UART, they are being stored in an array and the size of the array is being calculated. Then, in r0, the actual size of the array is returned to “main”.
+Then the subroutine SortAndPrint is called from the "main". The array that we want to sort and print as well as its size is passed to the subroutine. In this subroutine bubble sort is used to sort the values from lowest to highest. Once the sorting is complete, the print subroutine is called from within the SortandPrint subroutine. Here the array is printed to the UART. The values are represented in decimal form and are separated by spaces when printed.
